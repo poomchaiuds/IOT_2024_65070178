@@ -51,6 +51,10 @@ async def get_book(book_id: int, db: Session = Depends(get_db)):
 async def get_coffee(coffee_id: int, db: Session = Depends(get_db)):
     return db.query(models.Coffee).filter(models.Coffee.id == coffee_id).first()
 
+@router_v1.get('/orders/{order_id}')
+async def get_order(order_id: int, db: Session = Depends(get_db)):
+    return db.query(models.Order).filter(models.Order.id == order_id).first()
+
 @router_v1.post('/books')
 async def create_book(book: dict, response: Response, db: Session = Depends(get_db)):
     # TODO: Add validation
