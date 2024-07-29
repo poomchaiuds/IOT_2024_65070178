@@ -54,7 +54,7 @@ async def get_coffee(coffee_id: int, db: Session = Depends(get_db)):
 @router_v1.post('/books')
 async def create_book(book: dict, response: Response, db: Session = Depends(get_db)):
     # TODO: Add validation
-    newbook = models.Book(title=book['title'], author=book['author'], year=book['year'], is_published=book['is_published'])
+    newbook = models.Book(title=book['title'], author=book['author'], year=book['year'], is_published=book['is_published'], description=book['description'], sub=book['sub'], category=book['category'])
     db.add(newbook)
     db.commit()
     db.refresh(newbook)
