@@ -15,6 +15,6 @@ class Book(Base):
 class Coffee(Base):
     __tablename__ = 'coffees'
 
-    c_id = Column(Integer, primary_key=True)
-    c_title = Column(String)
-    c_price = Column(Integer)
+    c_id = Column(Integer, primary_key=True, index=True)
+    c_title = Column(String, index=True)
+    c_price = Column(Integer, index=True)
