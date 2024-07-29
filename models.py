@@ -11,9 +11,9 @@ class Book(Base):
     author = Column(String, index=True)
     year = Column(Integer, index=True)
     is_published = Column(Boolean, index=True)
-    description = Column(String)
-    sub = Column(String)
-    category = Column(String)
+    description = Column(String, index=True)
+    sub = Column(String, index=True)
+    category = Column(String, index=True)
 
 class Coffee(Base):
     __tablename__ = 'coffees'
