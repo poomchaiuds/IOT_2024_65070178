@@ -12,3 +12,9 @@ class Book(Base):
     year = Column(Integer, index=True)
     is_published = Column(Boolean, index=True)
 
+class Coffee(Base):
+    __tablename__ = 'coffees'
+
+    c_id = Column(Integer, primary_key=True, index=True)
+    c_title = Column(String, index=True)
+    c_price = Column(Integer, index=True)
