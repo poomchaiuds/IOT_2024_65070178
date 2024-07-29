@@ -71,6 +71,16 @@ async def create_coffee(coffee: dict, response: Response, db: Session = Depends(
     response.status_code = 201
     return newcoffee
 
+@router_v1.post('/makeorders')
+async def create_ordes(order: dict, response: Response, db: Session = Depends(get_db)):
+    # TODO: Add validation
+    neworder = models.Order(menu=order['menu'], total=order['total'], note=order['note'])
+    db.add(neworder)
+    db.commit()
+    db.refresh(neworder)
+    response.status_code = 201
+    return neworder
+
 # @router_v1.patch('/books/{book_id}')
 # async def update_book(book_id: int, book: dict, db: Session = Depends(get_db)):
 #     pass
