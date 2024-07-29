@@ -39,6 +39,10 @@ async def get_books(db: Session = Depends(get_db)):
 async def get_coffees(db: Session = Depends(get_db)):
     return db.query(models.Coffee).all()
 
+@router_v1.get('/orders')
+async def get_coffees(db: Session = Depends(get_db)):
+    return db.query(models.Order).all()
+
 @router_v1.get('/books/{book_id}')
 async def get_book(book_id: int, db: Session = Depends(get_db)):
     return db.query(models.Book).filter(models.Book.id == book_id).first()
