@@ -45,7 +45,7 @@ async def get_book(book_id: int, db: Session = Depends(get_db)):
 
 @router_v1.get('/coffees/{coffee_id}')
 async def get_coffee(coffee_id: int, db: Session = Depends(get_db)):
-    return db.query(models.Coffee).filter(models.Coffee.id == coffee_id).first()
+    return db.query(models.Coffee).filter(models.Coffee.c_id == coffee_id).first()
 
 @router_v1.post('/books')
 async def create_book(book: dict, response: Response, db: Session = Depends(get_db)):
