@@ -18,3 +18,10 @@ class Coffee(Base):
     c_id = Column(Integer, primary_key=True)
     c_title = Column(String)
     c_price = Column(Integer)
+
+class Order(Base):
+    __tablename__ = 'orders'
+
+    id = Column(Integer, primary_key=True, index=True)
+    menu = Column(String, index=True)
+    total = Column(Integer, index=True)
