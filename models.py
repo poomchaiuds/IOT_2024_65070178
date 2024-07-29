@@ -25,3 +25,4 @@ class Order(Base):
     id = Column(Integer, primary_key=True, index=True)
     menu = Column(String, index=True)
     total = Column(Integer, index=True)
+    note = Column(String, index=True)
